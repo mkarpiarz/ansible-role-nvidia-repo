@@ -15,10 +15,10 @@
   yum_repository:
     name: cuda
     description: NVIDIA CUDA repo
-    baseurl: "http://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_distarch }}"
+    baseurl: "https://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_distarch }}"
 
 - name: Add NVIDIA Machine Learning repository
   yum_repository:
     name: machine-learning
     description: NVIDIA Machine Learning repo
-    baseurl: "http://developer.download.nvidia.com/compute/machine-learning/repos/{{ nvidia_repo_distarch }}"
+    baseurl: "https://developer.download.nvidia.com/compute/machine-learning/repos/{{ nvidia_repo_distarch }}"
