@@ -1,3 +1,7 @@
 ---
+distro_name_default: "{{ ansible_distribution | lower }}"
+distro_name: "{{ 'rhel' if ansible_distribution == 'CentOS' else distro_name_default }}"
+distro_version_default: "{{ ansible_distribution_version | replace('.', '') }}"
+distro_version: "{{ ansible_distribution_major_version if ansible_os_family == 'RedHat' else distro_version_default }}"
 
-nvidia_repo_distarch: "{{ ansible_distribution | lower }}{{ ansible_distribution_version | replace('.', '') }}/{{ ansible_architecture }}"
+nvidia_repo_distarch: "{{ distro_name }}{{ distro_version }}/{{ ansible_architecture }}"

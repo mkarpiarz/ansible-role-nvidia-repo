@@ -1,0 +1,24 @@
+---
+
+- name: Add EPEL repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+- name: Add yum key for NVIDIA repository
+  rpm_key:
+    key: "https://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_distarch }}/7fa2af80.pub"
+    state: present
+
+- name: Add NVIDIA repository
+  yum_repository:
+    name: cuda
+    description: NVIDIA CUDA repo
+    baseurl: "http://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_distarch }}"
+
+- name: Add NVIDIA Machine Learning repository
+  yum_repository:
+    name: machine-learning
+    description: NVIDIA Machine Learning repo
+    baseurl: "http://developer.download.nvidia.com/compute/machine-learning/repos/{{ nvidia_repo_distarch }}"
