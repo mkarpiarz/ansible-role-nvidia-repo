@@ -1,5 +1,10 @@
 ---
 
+- name: Add yum key for EPEL repository
+  rpm_key:
+    key: "https://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    state: present
+
 - name: Add EPEL repository
   yum_repository:
     name: epel
