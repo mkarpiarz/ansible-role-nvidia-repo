@@ -19,3 +19,4 @@
     state: present
     filename: machine-learning
     update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"
+  when: enable_nvidia_machine_learning_repo

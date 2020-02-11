@@ -27,3 +27,4 @@
     name: machine-learning
     description: NVIDIA Machine Learning repo
     baseurl: "https://developer.download.nvidia.com/compute/machine-learning/repos/{{ nvidia_repo_distarch }}"
+  when: enable_nvidia_machine_learning_repo
