@@ -11,12 +11,14 @@
     repo: 'deb http://developer.download.nvidia.com/compute/cuda/repos/{{ nvidia_repo_distarch }} /'
     state: present
     filename: cuda
-    update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"
+    update_cache: no
+  notify: Update apt cache
 
 - name: NVIDIA Machine Learning repository is registered
   apt_repository:
     repo: 'deb http://developer.download.nvidia.com/compute/machine-learning/repos/{{ nvidia_repo_distarch }} /'
     state: present
     filename: machine-learning
-    update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"
+    update_cache: no
   when: enable_nvidia_machine_learning_repo
+  notify: Update apt cache
